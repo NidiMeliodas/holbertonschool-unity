@@ -724,6 +724,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Blue Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 6197949268147271712, guid: 956188ceb7e2d174597de5c34071b814, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3464dbb3cfb0be6428afe1af7c6b2a51, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
