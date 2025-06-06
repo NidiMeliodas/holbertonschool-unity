@@ -11,9 +11,14 @@ public class PlayerController : MonoBehaviour
     private Vector3 velocity;
     private bool isGrounded;
 
+    private Vector3 startPosition;
+    public float fallThreshold = -20f;
+    public float resetHeight = 10f;
+
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        startPosition = transform.position;
     }
 
     void Update()
@@ -22,7 +27,7 @@ public class PlayerController : MonoBehaviour
 
         if (isGrounded && velocity.y < 0)
         {
-            velocity.y = -2f; // Slight downward force to keep grounded
+            velocity.y = -2f;
         }
 
         float moveX = Input.GetAxis("Horizontal");
@@ -38,5 +43,19 @@ public class PlayerController : MonoBehaviour
 
         velocity.y += gravity * Time.deltaTime;
         controller.Move(velocity * Time.deltaTime);
+
+        // Fall reset check
+        if (transform.position.y < fallThreshold)
+        {
+            ResetToStart();
+        }
+    }
+
+    void ResetToStart()
+    {
+        velocity = Vector3.zero;
+        controller.enabled = false;
+        transform.position = startPosition + Vector3.up * resetHeight;
+        controller.enabled = true;
     }
 }
