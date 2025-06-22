@@ -7,6 +7,8 @@ public class CameraController : MonoBehaviour
     public float rotationSpeed = 5f;
     public bool requireRightClick = false;
 
+    public bool isInverted = false; // ✅ Add this field
+
     private float yaw = 0f;
     private float pitch = 0f;
 
@@ -32,7 +34,10 @@ public class CameraController : MonoBehaviour
         if (rotating)
         {
             float mouseX = Input.GetAxis("Mouse X");
-            float mouseY = -Input.GetAxis("Mouse Y");
+            float mouseY = Input.GetAxis("Mouse Y");
+
+            // ✅ Apply inversion based on toggle
+            mouseY = isInverted ? mouseY : -mouseY;
 
             yaw += mouseX * rotationSpeed;
             pitch += mouseY * rotationSpeed;

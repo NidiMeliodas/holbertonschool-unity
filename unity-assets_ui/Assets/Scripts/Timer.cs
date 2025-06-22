@@ -6,7 +6,9 @@ public class Timer : MonoBehaviour
 {
     public Text timerText;
     private float timer = 0f;
-    private bool isRunning = true;
+
+    // 🔧 Change this from private to public:
+    public bool isRunning = true;
 
     void Update()
     {
