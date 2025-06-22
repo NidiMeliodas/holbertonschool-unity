@@ -13,7 +13,10 @@ public class MainMenu : MonoBehaviour
     // Called by OptionsButton
     public void Options()
     {
+        Time.timeScale = 1f;
+        PlayerPrefs.SetString("PreviousScene", SceneManager.GetActiveScene().name);
         SceneManager.LoadScene("Options");
+
     }
 
     // Called by ExitButton

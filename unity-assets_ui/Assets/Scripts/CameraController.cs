@@ -7,7 +7,7 @@ public class CameraController : MonoBehaviour
     public float rotationSpeed = 5f;
     public bool requireRightClick = false;
 
-    public bool isInverted = false; // ✅ Add this field
+    public bool isInverted = false; 
 
     private float yaw = 0f;
     private float pitch = 0f;
@@ -20,6 +20,7 @@ public class CameraController : MonoBehaviour
             return;
         }
 
+        isInverted = PlayerPrefs.GetInt("InvertY", 0) == 1;
         Vector3 angles = transform.eulerAngles;
         yaw = angles.y;
         pitch = angles.x;
