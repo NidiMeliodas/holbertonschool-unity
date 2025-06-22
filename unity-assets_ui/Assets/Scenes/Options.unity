@@ -201,7 +201,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 43652941}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1470946517}
+        m_TargetAssemblyTypeName: OptionsMenu, Assembly-CSharp
+        m_MethodName: Back
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &43652941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2083,6 +2095,7 @@ GameObject:
   - component: {fileID: 1470946516}
   - component: {fileID: 1470946515}
   - component: {fileID: 1470946514}
+  - component: {fileID: 1470946517}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -2151,6 +2164,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1470946517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1470946513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a5f7f0739619c841a4bcc78835ae2cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1483672883
 GameObject:
   m_ObjectHideFlags: 0
