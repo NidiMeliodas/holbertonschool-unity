@@ -1,5 +1,5 @@
 ############################################
-# Unity Base Folders to Ignore
+# Unity Project Files to Ignore
 ############################################
 [Ll]ibrary/
 [Tt]emp/
@@ -8,15 +8,28 @@
 [Uu]ser[Ss]ettings/
 [Mm]emoryCaptures/
 [Rr]ecordings/
+
+############################################
+# Build Cache / History Files
+############################################
+*.bhc
+BuildCache/
+Assets/BuildCache/
+
+############################################
+# IDE / Editor Settings
+############################################
 .vscode/
 .vs/
 .gradle/
-
-############################################
-# IDE and Build System Files
-############################################
 ExportedObj/
 .consulo/
+
+# JetBrains Rider plugin
+Assets/Plugins/Editor/JetBrains*
+
+############################################
+# Visual Studio / Mono / Rider
 *.csproj
 *.unityproj
 *.sln
@@ -33,13 +46,13 @@ ExportedObj/
 *.VC.db
 
 ############################################
-# Crash and Debug Files
+# Crash Reports & Debug Logs
 ############################################
 sysinfo.txt
 crashlytics-build.properties
 
 ############################################
-# Package and Output Artifacts
+# Binary Builds and Packages
 ############################################
 *.apk
 *.aab
@@ -48,8 +61,7 @@ crashlytics-build.properties
 *.exe
 
 ############################################
-# Addressables
-############################################
+# Addressables (optional, if used)
 Assets/AddressableAssetsData/*/*.bin*
 Assets/StreamingAssets/aa.meta
 Assets/StreamingAssets/aa/*
@@ -61,13 +73,13 @@ Assets/StreamingAssets/aa/*
 Thumbs.db
 
 ############################################
-# Build Folders (Ignore all by default)
+# Build Folders — Ignore all except WebGL
 ############################################
-[Bb]uilds/
 [Bb]uild/
-
-# ✅ EXCEPTION: Allow WebGL Build folder (specifically named "Build")
+[Bb]uilds/
+# ✅ EXCEPTION: Allow "Build/" folder for WebGL hosting
 !Build/
 !Build/**
-!TemplateData/
 !index.html
+!TemplateData/
+!TemplateData/**
