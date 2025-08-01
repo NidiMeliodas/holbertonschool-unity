@@ -3,52 +3,37 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform target; // Reference to the player
-    public Vector3 offset = new Vector3(0, 5, -7); // Default offset behind the player
-    public float rotationSpeed = 5f;
-    public bool requireRightClick = false;
+    public Vector3 offset = new Vector3(0, 2.5f, -6.25f); // Camera offset
+    public float mouseSensitivity = 100f;
 
-    public bool isInverted = false; 
-
-    private float yaw = 0f;
-    private float pitch = 0f;
+    private float xRotation = 0f;
+    private float yRotation = 0f;
 
     void Start()
     {
-        if (target == null)
-        {
-            Debug.LogWarning("CameraController: No target set.");
-            return;
-        }
+        Cursor.lockState = CursorLockMode.Locked; // Lock cursor for FPS-style control
+    }
 
-        isInverted = PlayerPrefs.GetInt("InvertY", 0) == 1;
-        Vector3 angles = transform.eulerAngles;
-        yaw = angles.y;
-        pitch = angles.x;
+    void Update()
+    {
+        // Get mouse movement
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+
+        // Vertical camera rotation (pitch)
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -35f, 60f);
+
+        // Horizontal camera rotation (yaw)
+        yRotation += mouseX;
+
+        // Apply rotation to camera only
+        transform.rotation = Quaternion.Euler(xRotation, yRotation, 0f);
     }
 
     void LateUpdate()
     {
-        if (target == null) return;
-
-        bool rotating = !requireRightClick || Input.GetMouseButton(1);
-
-        if (rotating)
-        {
-            float mouseX = Input.GetAxis("Mouse X");
-            float mouseY = Input.GetAxis("Mouse Y");
-
-            // ✅ Apply inversion based on toggle
-            mouseY = isInverted ? mouseY : -mouseY;
-
-            yaw += mouseX * rotationSpeed;
-            pitch += mouseY * rotationSpeed;
-            pitch = Mathf.Clamp(pitch, -35f, 60f);
-        }
-
-        Quaternion rotation = Quaternion.Euler(pitch, yaw, 0);
-        Vector3 desiredPosition = target.position + rotation * offset;
-
-        transform.position = desiredPosition;
-        transform.LookAt(target);
+        // Camera follows player’s position + rotation applied above
+        transform.position = target.position + transform.rotation * offset;
     }
 }
