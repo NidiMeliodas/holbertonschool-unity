@@ -379,9 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 2013668895}
   offset: {x: 0, y: 5, z: -7}
-  rotationSpeed: 5
-  requireRightClick: 1
-  isInverted: 0
+  mouseSensitivity: 100
 --- !u!1001 &341481969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1541,6 +1539,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941619998}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &952739410
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 952739411}
+  m_Layer: 0
+  m_Name: CutsceneManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &952739411
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952739410}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.23820731, y: 1.3497726, z: -0.073215485}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1012009871
 GameObject:
   m_ObjectHideFlags: 0
@@ -3438,6 +3467,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1830444125126018135, guid: d73d042e26a702147a4796c5b679c8c6, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1830444125126018135, guid: d73d042e26a702147a4796c5b679c8c6, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -3497,6 +3530,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6877617303751688918, guid: d73d042e26a702147a4796c5b679c8c6, type: 3}
+      propertyPath: cameraTransform
+      value: 
+      objectReference: {fileID: 235230205}
     - target: {fileID: 6988489624309093344, guid: d73d042e26a702147a4796c5b679c8c6, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -3837,3 +3874,4 @@ SceneRoots:
   - {fileID: 1294615622}
   - {fileID: 8011848063572593561}
   - {fileID: 807351477}
+  - {fileID: 952739411}
