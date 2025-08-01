@@ -1162,6 +1162,7 @@ GameObject:
   - component: {fileID: 807351475}
   - component: {fileID: 807351474}
   - component: {fileID: 807351473}
+  - component: {fileID: 807351478}
   m_Layer: 0
   m_Name: CutsceneCamera
   m_TagString: Untagged
@@ -1276,7 +1277,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 27
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
@@ -1303,12 +1304,27 @@ Transform:
   m_GameObject: {fileID: 807351472}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.25, z: 47.39}
+  m_LocalPosition: {x: 0, y: 1.5, z: 45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &807351478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807351472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a680b3696f1841e45bab42a9407a03b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 235230202}
+  player: {fileID: 1100387157}
+  timerCanvas: {fileID: 2080920456}
 --- !u!1001 &877505632
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1761,6 +1777,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1095247376}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1100387157 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1830444125126018135, guid: d73d042e26a702147a4796c5b679c8c6, type: 3}
+  m_PrefabInstance: {fileID: 3015944425019113164}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1173781383
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3164,7 +3185,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6988489624309093344, guid: d73d042e26a702147a4796c5b679c8c6, type: 3}
   m_PrefabInstance: {fileID: 3015944425019113164}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1100387157}
   m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f004a533eb50b9e4486cf7bbde765c56, type: 3}
@@ -3399,6 +3420,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2080920456 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6591889230697841682, guid: 83367e2ddce25af4892d037abe730cf3, type: 3}
+  m_PrefabInstance: {fileID: 3110188453462609796}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3015944425019113164
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3414,6 +3440,10 @@ PrefabInstance:
     - target: {fileID: 1830444125126018135, guid: d73d042e26a702147a4796c5b679c8c6, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2191552461514453809, guid: d73d042e26a702147a4796c5b679c8c6, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3222552332164376064, guid: d73d042e26a702147a4796c5b679c8c6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3453,6 +3483,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3222552332164376064, guid: d73d042e26a702147a4796c5b679c8c6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6877617303751688918, guid: d73d042e26a702147a4796c5b679c8c6, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6988489624309093344, guid: d73d042e26a702147a4796c5b679c8c6, type: 3}
@@ -3559,6 +3593,10 @@ PrefabInstance:
     - target: {fileID: 6591889230697841682, guid: 83367e2ddce25af4892d037abe730cf3, type: 3}
       propertyPath: m_Name
       value: TimerCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6591889230697841682, guid: 83367e2ddce25af4892d037abe730cf3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
