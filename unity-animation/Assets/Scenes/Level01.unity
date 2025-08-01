@@ -378,7 +378,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 2013668895}
-  offset: {x: 0, y: 5, z: -7}
+  offset: {x: 0, y: 2.5, z: -7}
   mouseSensitivity: 100
 --- !u!1001 &341481969
 PrefabInstance:
