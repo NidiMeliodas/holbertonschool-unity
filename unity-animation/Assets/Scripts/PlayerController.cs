@@ -15,19 +15,31 @@ public class PlayerController : MonoBehaviour
     public float fallThreshold = -20f;
     public float resetHeight = 10f;
 
-    public Transform cameraTransform; // ✅ Add this to get camera-relative movement
-    public float rotationSpeed = 10f; // For smooth rotation
+    public Transform cameraTransform;
+    public float rotationSpeed = 10f;
+
+    private Animator animator; // Add this
+    private bool isMoving; // Track movement for animation
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
+
+        animator = GetComponentInChildren<Animator>(); // ✅ Fix
+
+        if (animator == null)
+        {
+            Debug.LogError("Animator not found on Player or its children!");
+        }
+
         startPosition = transform.position;
 
         if (cameraTransform == null)
         {
-            cameraTransform = Camera.main.transform; // Auto-assign if not set
+            cameraTransform = Camera.main.transform;
         }
     }
+
 
     void Update()
     {
@@ -44,9 +56,9 @@ public class PlayerController : MonoBehaviour
 
         Vector3 move = Vector3.zero;
 
-        if (inputDir.magnitude >= 0.1f)
+
+        if (isMoving)
         {
-            // ✅ Move relative to camera
             Vector3 forward = cameraTransform.forward;
             Vector3 right = cameraTransform.right;
             forward.y = 0f; right.y = 0f;
@@ -55,7 +67,6 @@ public class PlayerController : MonoBehaviour
             move = forward * inputDir.z + right * inputDir.x;
             controller.Move(move * moveSpeed * Time.deltaTime);
 
-            // ✅ Smoothly rotate to face move direction
             Quaternion targetRotation = Quaternion.LookRotation(move);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
         }
@@ -72,7 +83,17 @@ public class PlayerController : MonoBehaviour
         {
             ResetToStart();
         }
+        isMoving = inputDir.magnitude >= 0.1f; //  Determine if moving
+        animator.SetBool("isRunning", isMoving); //  Set Animator parameter
+        Debug.Log("isRunning: " + isMoving);
+
+        if (Input.GetButtonDown("Jump") && isGrounded)
+        {
+            velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
+            animator.SetTrigger("Jump"); // Trigger jump animation
+        }
     }
+
 
     void ResetToStart()
     {
