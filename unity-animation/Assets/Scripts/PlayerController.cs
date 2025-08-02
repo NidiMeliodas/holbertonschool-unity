@@ -92,6 +92,11 @@ public class PlayerController : MonoBehaviour
             velocity.y = Mathf.Sqrt(jumpHeight * -2f * gravity);
             animator.SetTrigger("Jump"); // Trigger jump animation
         }
+
+        // Add this after isGrounded check
+        bool fallingNow = !isGrounded && velocity.y < 0;
+        animator.SetBool("isFalling", fallingNow);
+
     }
 
 
