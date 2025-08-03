@@ -131,6 +131,8 @@ MonoBehaviour:
   gravity: -9.81
   fallThreshold: -20
   resetHeight: 10
+  cameraTransform: {fileID: 0}
+  rotationSpeed: 10
 --- !u!143 &2814839538077811165
 CharacterController:
   m_ObjectHideFlags: 0
@@ -184,7 +186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3021fc2c3f66714438f9941d6af4689b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3021fc2c3f66714438f9941d6af4689b, type: 3}
       propertyPath: m_LocalPosition.z
